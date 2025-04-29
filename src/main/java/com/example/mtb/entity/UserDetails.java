@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -25,4 +26,10 @@ public class UserDetails {
     private LocalDate dateOfBirth;
     private long createdAt;
     private long updatedAt;
+
+    public void setDelete(boolean b) {
+    }
+
+    public void setDeletedAt(Instant now) {
+    }
 }
