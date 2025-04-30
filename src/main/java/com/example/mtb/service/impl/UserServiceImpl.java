@@ -11,6 +11,7 @@ import com.example.mtb.mapper.UserDetailsMapper;
 import com.example.mtb.repository.UserRepository;
 import com.example.mtb.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -21,6 +22,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserDetailsMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserResponse addUser(UserRegistrationRequest user) {
@@ -66,7 +68,7 @@ public class UserServiceImpl implements UserService {
 
     private UserDetails copy(UserDetails userRole, UserRegistrationRequest user) {
         userRole.setUserRole(user.userRole());
-        userRole.setPassword(user.password());
+        userRole.setPassword(passwordEncoder.encode(user.password()));
         userRole.setEmail(user.email());
         userRole.setDateOfBirth(user.dateOfBirth());
         userRole.setPhoneNumber(user.phoneNumber());

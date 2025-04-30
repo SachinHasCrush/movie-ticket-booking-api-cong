@@ -17,24 +17,22 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    PasswordEncoder passwordEncoder (){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
-        http.csrf(csrf -> csrf.disable());
-
-        http.authorizeHttpRequests( auth -> auth.requestMatchers(HttpMethod.POST, "/register")
-                .permitAll()
-                .anyRequest()
-                .authenticated());
-
-        http.formLogin(Customizer.withDefaults());
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(csrf -> csrf.disable()) // disable CSRF for Postman testing
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST, "/register").permitAll() // 👈 ALLOW /login
+                        .anyRequest().authenticated()
+                )
+                .formLogin(Customizer.withDefaults()); // enables default login handling
 
         return http.build();
-
     }
-
 }
+
+
