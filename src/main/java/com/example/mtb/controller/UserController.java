@@ -3,7 +3,6 @@ package com.example.mtb.controller;
 import com.example.mtb.dto.UserRegistrationRequest;
 import com.example.mtb.dto.UserResponse;
 import com.example.mtb.dto.UserUpdationRequest;
-import com.example.mtb.service.TheaterService;
 import com.example.mtb.service.UserService;
 import com.example.mtb.util.ResponseStructure;
 import com.example.mtb.util.RestResponseBuilder;
@@ -13,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
 @RestController
 @AllArgsConstructor
 public class UserController {
