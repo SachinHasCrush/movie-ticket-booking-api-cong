@@ -1,4 +1,4 @@
-package dto;
+package com.example.mtb.dto;
 
 import com.example.mtb.enums.UserRole;
 import lombok.Builder;

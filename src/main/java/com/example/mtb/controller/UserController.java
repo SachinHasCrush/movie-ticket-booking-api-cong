@@ -1,4 +1,5 @@
 package com.example.mtb.controller;
+
 import com.example.mtb.dto.UserRegistrationRequest;
 import com.example.mtb.dto.UserResponse;
 import com.example.mtb.dto.UserUpdationRequest;
@@ -36,5 +37,6 @@ public class UserController {
         return responseBuilder.sucess(HttpStatus.OK,"UserDetails account has been deleted ", userDetails);
     }
 }
+
 
 
