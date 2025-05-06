@@ -11,7 +11,7 @@ public interface TheaterService {
     TheaterResponse findTheater(String theaterId);
 
     TheaterResponse updateTheater(String theaterId, TheaterRequest registerationRequest);
-
+}
 //    public class userService {
 //        public UserResponse addUser(@Valid UserRegistrationRequest user) {
 //
@@ -26,4 +26,4 @@ public interface TheaterService {
 //            return null;
 //        }
 //    }
-}
+

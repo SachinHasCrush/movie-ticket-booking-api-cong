@@ -1,13 +1,9 @@
 package com.example.mtb.exceptions.handler;
 
-import lombok.Getter;
 
-@Getter
 public class UserNotFoundByEmailException extends RuntimeException {
-
-    private  String message;
-
     public UserNotFoundByEmailException(String message) {
-        this.message = message;
+        super(message);
     }
 }
+
